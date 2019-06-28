@@ -1,0 +1,43 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion 28
+}
+
+dependencies {
+    def commonDependencies = rootProject.ext.commonDependencies
+    def testDependencies = rootProject.ext.testDependencies
+    def presentationDependencies = rootProject.ext.presentationDependencies
+
+    // Kotlin
+    api commonDependencies.kotlin
+    api commonDependencies.coreKtx
+
+    // Dagger
+    api commonDependencies.dagger
+    kapt commonDependencies.daggerCompiler
+
+    // RX
+    api commonDependencies.rxJava
+
+    // Network
+    api commonDependencies.gson
+    api commonDependencies.okHttp
+    api commonDependencies.retrofit2
+    api commonDependencies.retrofitRxAdapter
+    api commonDependencies.retrofitConverter
+
+    // Android X
+    api presentationDependencies.appcompat
+    api presentationDependencies.recyclerView
+    api presentationDependencies.lifecycleExtension
+
+    implementation presentationDependencies.picasso
+
+    // Test
+    testImplementation testDependencies.junit
+    testImplementation testDependencies.mockk
+}
