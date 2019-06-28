@@ -1,1 +1,1 @@
-# CleanArchitecture by Georgevik
+# Clean Architecture in Android by Georgevik
